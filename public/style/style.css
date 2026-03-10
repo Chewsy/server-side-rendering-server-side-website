@@ -42,3 +42,38 @@ header {
         padding-right: 40px;
     }
 }
+
+nav {
+    background-color: #0e141b;
+    height: 100px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 40px;
+    padding-left: 40px;
+
+    & ul {
+        display: flex;
+        color: #cce3ff;
+        font-family: 'Clash Display Bold', sans-serif;
+        list-style-type: none;
+        gap: 24px;
+        font-weight: 600;
+        margin: 0;
+        align-items: center;
+    }
+}
+
+.button {
+    background-color: #00408f;
+    border-color: #fff;
+    border-radius: 15px;
+    border-style: solid;
+    border-width: 1.5px;
+    color: #fff;
+    display: inline;
+    font-family: 'Clash Display', sans-serif;
+    padding: 17.6px 28.8px;
+}
