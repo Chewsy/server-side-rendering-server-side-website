@@ -20,6 +20,7 @@ html {
 
 body {
     margin: 0;
+    font-family: 'Clash Display', sans-serif;
 }
 
 header {
@@ -31,6 +32,8 @@ header {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
+
+    position: sticky;
 
     & ul {
         display: flex;
@@ -54,6 +57,8 @@ nav {
     padding-right: 40px;
     padding-left: 40px;
 
+    position: sticky;
+
     & ul {
         display: flex;
         color: #cce3ff;
@@ -76,4 +81,35 @@ nav {
     display: inline;
     font-family: 'Clash Display', sans-serif;
     padding: 17.6px 28.8px;
+    width: max-content;
+}
+
+.heroTalentAward {
+    height: 485px;
+    background-color: #0e141b;
+    color: #fff;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 36.8px 0px 0px;
+
+    .heroContainer {
+        color: #fff;
+        display: flex;
+        flex-direction: column;
+        margin: 0px 71.25px;
+        padding: 48px 0px 0px;
+
+        &p {
+            color: #fff;
+            font-size: 40px;
+            font-weight: 600;
+            line-height: 48px;
+        }
+    }
+
+    & img {
+        margin-right: 48px;
+        border-radius: 16px 16px 0px 0px;
+    }
 }
