@@ -177,3 +177,69 @@ nav {
         }
     }
 }
+
+& .voorgaandeWinaarContainer {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin: 16px 0px 32px;
+    padding-right: 40px;
+    padding-left: 40px;
+
+    & .divider {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 20px;
+        width: 100%;
+
+        & hr {
+            flex: 1;
+            border: none;
+            border-top: 1px solid #fff;
+            margin: 0;
+        }
+    }
+
+    & .voorgaandeWinnaar {
+        justify-content: center;
+        background-color: #0e141b;
+        border-radius: 15px;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        margin: 16px 0px 16px;
+        padding: 32px;
+        max-width: 1000px;
+
+        .winnaarInfo {
+            align-items: center;
+            display: flex;
+            gap: 32px;
+            justify-content: center;
+
+            & img {
+                width: 200px;
+                border-radius: 15px;
+            }
+
+            & .infoTekst {
+                align-items: flex-start;
+                display: flex;
+                flex-direction: column;
+                gap: 24px;
+
+                & h3 {
+                    font-size: 26px;
+                    font-weight: 600;
+                }
+
+                & p {
+                    font-size: 17px;
+                    font-weight: 300;
+                }
+            }
+        }
+    }
+}
