@@ -44,9 +44,15 @@ app.get('/', async function (request, response) {
 })
 
 app.get('/ad-talent-award', async function (request, response) {
-   // Render index.liquid uit de Views map
+   // Render adTalentAward.liquid uit de Views map
    // Geef hier eventueel data aan mee
    response.render('talentAward.liquid', {apiResponse: apiResponseJSON.data})
+})
+
+app.get('/nominee', async function (request, response) {
+   // Render nominee.liquid uit de Views map
+   // Geef hier eventueel data aan mee
+   response.render('nominee.liquid', {apiResponse: apiResponseJSON.data})
 })
 
 // Maak een POST route voor de index; hiermee kun je bijvoorbeeld formulieren afvangen
