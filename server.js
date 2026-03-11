@@ -22,7 +22,7 @@ const apiResponseJSON = await apiResponse.json()
 const app = express()
 
 // Maak werken met data uit formulieren iets prettiger
-app.use(express.urlencoded({extended: true}))
+app.use(express.urlencoded({ extended: true }))
 
 // Gebruik de map 'public' voor statische bestanden (resources zoals CSS, JavaScript, afbeeldingen en fonts)
 // Bestanden in deze map kunnen dus door de browser gebruikt worden
@@ -30,7 +30,7 @@ app.use(express.static('public'))
 
 // Stel Liquid in als 'view engine'
 const engine = new Liquid();
-app.engine('liquid', engine.express()); 
+app.engine('liquid', engine.express());
 
 // Stel de map met Liquid templates in
 // Let op: de browser kan deze bestanden niet rechtstreeks laden (zoals voorheen met HTML bestanden)
@@ -40,27 +40,32 @@ app.set('views', './views')
 app.get('/', async function (request, response) {
    // Render index.liquid uit de Views map
    // Geef hier eventueel data aan mee
-   response.render('index.liquid', {apiResponse: apiResponseJSON.data})
+   response.render('index.liquid', { apiResponse: apiResponseJSON.data })
 })
 
 app.get('/ad-talent-award', async function (request, response) {
    // Render adTalentAward.liquid uit de Views map
    // Geef hier eventueel data aan mee
-   response.render('talentAward.liquid', {apiResponse: apiResponseJSON.data})
+   response.render('talentAward.liquid', { apiResponse: apiResponseJSON.data })
 })
 
-app.get('/nominee', async function (request, response) {
+app.get('/nominee/:naam', async function (request, response) {
    // Render nominee.liquid uit de Views map
-   // Geef hier eventueel data aan mee
-   response.render('nominee.liquid', {apiResponse: apiResponseJSON.data})
+   const naam = request.params.naam
+   // Haal dash uit volledige naam
+   const correcteNaam = naam.replace('-', ' ')
+   // Zoek in array op naam
+   const fetchedNaam = apiResponseJSON.data.find(item => item.title === correcteNaam)
+
+   response.render('nominee.liquid', { apiResponse: fetchedNaam })
 })
 
 // Maak een POST route voor de index; hiermee kun je bijvoorbeeld formulieren afvangen
 // Hier doen we nu nog niets mee, maar je kunt er mee spelen als je wilt
 app.post('/', async function (request, response) {
-  // Je zou hier data kunnen opslaan, of veranderen, of wat je maar wilt
-  // Er is nog geen afhandeling van een POST, dus stuur de bezoeker terug naar /
-  response.redirect(303, '/')
+   // Je zou hier data kunnen opslaan, of veranderen, of wat je maar wilt
+   // Er is nog geen afhandeling van een POST, dus stuur de bezoeker terug naar /
+   response.redirect(303, '/')
 })
 
 // Stel het poortnummer in waar Express op moet gaan luisteren
@@ -69,6 +74,6 @@ app.set('port', process.env.PORT || 8000)
 
 // Start Express op, haal daarbij het zojuist ingestelde poortnummer op
 app.listen(app.get('port'), function () {
-  // Toon een bericht in de console en geef het poortnummer door
-  console.log(`Application started on http://localhost:${app.get('port')}`)
+   // Toon een bericht in de console en geef het poortnummer door
+   console.log(`Application started on http://localhost:${app.get('port')}`)
 })
