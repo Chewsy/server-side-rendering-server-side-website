@@ -113,5 +113,20 @@
         </div>
       </article>
     </section>
+
+    <section class="huidigeNominaties">
+      <div class="nominatiesContainer">
+        {% for nomination in apiResponse %}
+        <div class="nominatie">
+            <img src="https://fdnd-agency.directus.app/assets/{{ nomination.profile_picture }}">
+            <h4>{{ nomination.title }}</h4>
+            <ul>
+            <li>{{ nomination.course }}</li>
+            <li>{{ nomination.institution }}</li>
+            </ul>
+        </div>
+        {% endfor %}
+      </div>
+        </section>
   </body>
 </html>
