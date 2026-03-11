@@ -112,21 +112,30 @@
           </div>
         </div>
       </article>
+      <div class="divider">
+        <hr>
+        <h3>Huidige nominees</h3>
+        <hr>
+      </div>
     </section>
 
     <section class="huidigeNominaties">
       <div class="nominatiesContainer">
         {% for nomination in apiResponse %}
-        <div class="nominatie">
-            <img src="https://fdnd-agency.directus.app/assets/{{ nomination.profile_picture }}">
+          <div class="nominatie">
+            {% if nomination.profile_picture == nil %}
+              <img src="https://www.shutterstock.com/image-vector/default-avatar-profile-icon-social-600nw-1906669723.jpg">
+            {% else %}
+              <img src="https://fdnd-agency.directus.app/assets/{{ nomination.profile_picture }}">
+            {% endif %}
             <h4>{{ nomination.title }}</h4>
             <ul>
-            <li>{{ nomination.course }}</li>
-            <li>{{ nomination.institution }}</li>
+              <li>{{ nomination.course }}</li>
+              <li>{{ nomination.institution }}</li>
             </ul>
-        </div>
+          </div>
         {% endfor %}
       </div>
-        </section>
+    </section>
   </body>
 </html>
