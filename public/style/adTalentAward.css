@@ -25,6 +25,19 @@ body {
     margin-bottom: 40px;
 }
 
+a {
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
+
+    &:visited {
+        color: inherit;
+    }
+}
+
+
 header {
     background-color: hsl(213, 100%, 13%);
     height: 50px;
@@ -273,13 +286,13 @@ nav {
             border-radius: 10px 0 0 10px;
         }
 
-        & h4{
+        & h4 {
             grid-column: 2;
             grid-row: 1 / 2;
             align-self: start;
         }
 
-        & ul{
+        & ul {
             grid-column: 2;
             grid-row: 2 / 3;
             list-style-type: none;
