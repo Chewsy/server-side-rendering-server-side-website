@@ -15,7 +15,7 @@ const apiResponseJSON = await apiResponse.json()
 
 // Controleer eventueel de data in je console
 // (Let op: dit is _niet_ de console van je browser, maar van NodeJS, in je terminal)
-console.log(apiResponseJSON)
+// console.log(apiResponseJSON)
 
 
 // Maak een nieuwe Express applicatie aan, waarin we de server configureren
@@ -41,6 +41,12 @@ app.get('/', async function (request, response) {
    // Render index.liquid uit de Views map
    // Geef hier eventueel data aan mee
    response.render('index.liquid', {apiResponse: apiResponseJSON.data})
+})
+
+app.get('/ad-talent-award', async function (request, response) {
+   // Render index.liquid uit de Views map
+   // Geef hier eventueel data aan mee
+   response.render('talentAward.liquid', {apiResponse: apiResponseJSON.data})
 })
 
 // Maak een POST route voor de index; hiermee kun je bijvoorbeeld formulieren afvangen
