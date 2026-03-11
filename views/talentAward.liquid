@@ -7,25 +7,7 @@
     <link rel="stylesheet" href="/style/style.css">
   </head>
   <body>
-    <header>
-      <ul>
-        <li>FAQs</li>
-        <li>Over ons</li>
-        <li>Contact</li>
-      </ul>
-    </header>
-
-    <nav>
-      <img src="/assets/logo-white.BRllZ9aS.svg">
-      <ul>
-        <li>Home</li>
-        <li>Over Ad's</li>
-        <li>Publicaties</li>
-        <li>Talent Award</li>
-        <li>Nieuws</li>
-        <a class="button">Kom naar Ad-dag</a>
-      </ul>
-    </nav>
+    {% include 'partials/header.liquid' %}
 
     <section class="heroTalentAward">
       <div class="heroContainer">
@@ -123,7 +105,7 @@
       <div class="nominatiesContainer">
         {% for nomination in apiResponse %}
           <div class="nominatie">
-            {% if nomination.profile_picture == nil %}
+            {% if nomination.profile_picture == null %}
               <img src="https://www.shutterstock.com/image-vector/default-avatar-profile-icon-social-600nw-1906669723.jpg">
             {% else %}
               <img src="https://fdnd-agency.directus.app/assets/{{ nomination.profile_picture }}">
