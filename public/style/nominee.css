@@ -1,5 +1,5 @@
 .heroNominee {
-    height: 485px;
+    height: 350px;
     background-color: #0e141b;
     display: flex;
     flex-direction: row;
@@ -48,11 +48,18 @@
 
 .bio {
     display: flex;
-    justify-content: center;
-    width: 100%;
+    flex-direction: row;
+    gap: 20px;
     padding: 0 40px;
+    align-items: flex-start;
+    margin-top: 40px;
 
-    & p {
-        width: 90%;
+    & video{
+        width: 500px;
+        height: auto;
+    }
+
+    p{
+        margin: 0;
     }
 }
