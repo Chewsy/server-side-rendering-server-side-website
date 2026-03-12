@@ -35,7 +35,7 @@ body {
     margin: 0;
     font-family: 'Clash Display', sans-serif;
     margin-bottom: 40px;
-    width: 100vw;
+    width: 100%;
 
 }
 
@@ -71,8 +71,7 @@ nav {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding-right: 40px;
-    padding-left: 40px;
+    padding: 0 40px;
 
     position: sticky;
 
