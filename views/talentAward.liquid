@@ -105,7 +105,7 @@
     <section class="huidigeNominaties">
       <div class="nominatiesContainer">
         {% for nomination in apiResponse %}
-          <div class="nominatie">
+          <a href="nominee/{{ nomination.title | replace: '"', '' | replace: ' ', '-' }}"><div class="nominatie">
             {% if nomination.profile_picture == null %}
               <img src="https://www.shutterstock.com/image-vector/default-avatar-profile-icon-social-600nw-1906669723.jpg">
             {% else %}
