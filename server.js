@@ -60,6 +60,12 @@ app.get('/nominee/:naam', async function (request, response) {
    response.render('nominee.liquid', { apiResponse: fetchedNaam })
 })
 
+app.get('/opleidingsprofielen', async function (request, response) {
+   // Render opleidingsprofielen.liquid uit de Views map
+   // Geef hier eventueel data aan mee
+   response.render('opleidingsprofielen.liquid', { apiResponse: apiResponseJSON.data })
+})
+
 // Maak een POST route voor de index; hiermee kun je bijvoorbeeld formulieren afvangen
 // Hier doen we nu nog niets mee, maar je kunt er mee spelen als je wilt
 app.post('/', async function (request, response) {
