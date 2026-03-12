@@ -40,7 +40,6 @@ html {
 body {
     margin: 0;
     font-family: 'Clash Display', sans-serif;
-    margin-bottom: 40px;
     width: 100%;
 
 }
@@ -115,7 +114,7 @@ nav {
         padding: 12.6px 22.8px;
         width: max-content;
 
-        &:hover{
+        &:hover {
             text-decoration: underline;
         }
     }
@@ -135,4 +134,30 @@ nav {
 
 p {
     font-family: 'Archivo', sans-serif;
+}
+
+footer {
+    background-color: #0e141b;
+    padding: 40px;
+    margin-top: 40px;
+
+    & .navContainer {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        gap: 16px;
+        align-content: space-evenly;
+
+        margin-top: 40px;
+
+        & section ul {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
+    }
+
+    & hr {
+
+        width: 100%;
+    }
 }
