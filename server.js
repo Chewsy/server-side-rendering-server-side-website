@@ -8,10 +8,23 @@ import { Liquid } from 'liquidjs';
 
 console.log('Hieronder moet je waarschijnlijk nog wat veranderen')
 // Doe een fetch naar de data die je nodig hebt
-const apiResponse = await fetch('https://fdnd-agency.directus.app/items/adconnect_nominations')
+const [documentsRes, eventsRes, newsRes, nominationsRes, themesRes, categoriesRes, contactRes] = await Promise.all([
+   fetch('https://fdnd-agency.directus.app/items/adconnect_documents'),
+   fetch('https://fdnd-agency.directus.app/items/adconnect_events'),
+   fetch('https://fdnd-agency.directus.app/items/adconnect_news'),
+   fetch('https://fdnd-agency.directus.app/items/adconnect_nominations'),
+   fetch('https://fdnd-agency.directus.app/items/adconnect_themes'),
+   fetch('https://fdnd-agency.directus.app/items/adconnect_categories'),
+   fetch('https://fdnd-agency.directus.app/items/adconnect_contact'),
+])
 
-// Lees van de response van die fetch het JSON object in, waar we iets mee kunnen doen
-const apiResponseJSON = await apiResponse.json()
+const documents = await documentsRes.json()
+const events = await eventsRes.json()
+const news = await newsRes.json()
+const nominations = await nominationsRes.json()
+const themes = await themesRes.json()
+const categories = await categoriesRes.json()
+const contact = await contactRes.json()
 
 // Controleer eventueel de data in je console
 // (Let op: dit is _niet_ de console van je browser, maar van NodeJS, in je terminal)
@@ -40,13 +53,13 @@ app.set('views', './views')
 app.get('/', async function (request, response) {
    // Render index.liquid uit de Views map
    // Geef hier eventueel data aan mee
-   response.render('index.liquid', { apiResponse: apiResponseJSON.data })
+   response.render('index.liquid', { documents: documents.data, events: events.data, news: news.data, nominations: nominations.data, themes: themes.data, categories: categories.data, contact: contact.data })
 })
 
 app.get('/ad-talent-award', async function (request, response) {
    // Render adTalentAward.liquid uit de Views map
    // Geef hier eventueel data aan mee
-   response.render('talentAward.liquid', { apiResponse: apiResponseJSON.data })
+   response.render('talentAward.liquid', { documents: documents.data, events: events.data, news: news.data, nominations: nominations.data, themes: themes.data, categories: categories.data, contact: contact.data })
 })
 
 app.get('/nominee/:naam', async function (request, response) {
@@ -55,15 +68,15 @@ app.get('/nominee/:naam', async function (request, response) {
    // Haal dash uit volledige naam
    const correcteNaam = naam.replaceAll('-', ' ')
    // Zoek in array op naam
-   const fetchedNaam = apiResponseJSON.data.find(item => item.title === correcteNaam)
+   const fetchedNaam = nominations.data.find(item => item.title === correcteNaam)
 
-   response.render('nominee.liquid', { apiResponse: fetchedNaam })
+   response.render('nominee.liquid', { nomination: fetchedNaam })
 })
 
 app.get('/opleidingsprofielen', async function (request, response) {
    // Render opleidingsprofielen.liquid uit de Views map
    // Geef hier eventueel data aan mee
-   response.render('opleidingsprofielen.liquid', { apiResponse: apiResponseJSON.data })
+   response.render('opleidingsprofielen.liquid', { documents: documents.data, events: events.data, news: news.data, nominations: nominations.data, themes: themes.data, categories: categories.data, contact: contact.data })
 })
 
 // Maak een POST route voor de index; hiermee kun je bijvoorbeeld formulieren afvangen
