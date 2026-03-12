@@ -53,7 +53,7 @@ app.get('/nominee/:naam', async function (request, response) {
    // Render nominee.liquid uit de Views map
    const naam = request.params.naam
    // Haal dash uit volledige naam
-   const correcteNaam = naam.replace('-', ' ')
+   const correcteNaam = naam.replaceAll('-', ' ')
    // Zoek in array op naam
    const fetchedNaam = apiResponseJSON.data.find(item => item.title === correcteNaam)
 
