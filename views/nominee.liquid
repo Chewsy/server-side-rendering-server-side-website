@@ -13,21 +13,21 @@
     <section class="heroNominee">
       <div class="heroContainer">
         <div class="nomineeInfo">
-          <div class="slug">Home \ Talent Award \ {{ apiResponse.title | json | replace: '"', '' }}</div>
-          <h1>{{ apiResponse.title | json | replace: '"', '' }}</h1>
+          <div class="slug">Home \ Talent Award \ {{ nomination.title | json | replace: '"', '' }}</div>
+          <h1>{{ nomination.title | json | replace: '"', '' }}</h1>
           <ul>
-            <li><span class="bold">Opleiding:</span> {{ apiResponse.course }}</li>
-            <li><span class="bold">Institutie:</span> {{ apiResponse.institution }}</li>
-            <li><span class="bold">Variant:</span> {{ apiResponse.education_variant }}</li>
-            <li><span class="bold">Vorige opleiding:</span> {{ apiResponse.previous_course }}</li>
+            <li><span class="bold">Opleiding:</span> {{ nomination.course }}</li>
+            <li><span class="bold">Institutie:</span> {{ nomination.institution }}</li>
+            <li><span class="bold">Variant:</span> {{ nomination.education_variant }}</li>
+            <li><span class="bold">Vorige opleiding:</span> {{ nomination.previous_course }}</li>
           </ul>
         </div>
-        <img src="https://fdnd-agency.directus.app/assets/{{ apiResponse.profile_picture }}">
+        <img src="https://fdnd-agency.directus.app/assets/{{ nomination.profile_picture }}">
       </div>
     </section>
 
     <section class="bio">
-      <p>{{ apiResponse.body }}</p>
+      <p>{{ nomination.body }}</p>
     </section>
   </body>
 </html>
