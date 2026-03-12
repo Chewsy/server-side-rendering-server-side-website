@@ -54,12 +54,56 @@
     align-items: flex-start;
     margin-top: 40px;
 
-    & video{
+    & video {
         width: 500px;
         height: auto;
     }
 
-    p{
+    p {
         margin: 0;
+    }
+}
+
+.nominatie {
+    padding: 0 40px;
+    margin-top: 40px;
+
+    & .divider {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 20px;
+        width: 100%;
+
+        & hr {
+            flex: 1;
+            border: none;
+            border-top: 1px solid #fff;
+            margin: 0;
+        }
+    }
+
+    & .quote {
+        display: flex;
+        flex-direction: row;
+        height: max-content;
+        gap: 10px;
+        flex-wrap: wrap;
+
+        & p {
+            margin: 0;
+            width: 95%;
+        }
+
+        & .quoteMarker {
+            height: auto;
+            width: 10px;
+            background-color: #cce3ff;
+        }
+
+        & .quoteur {
+            font-style: italic;
+            color: #cce3ff;
+        }
     }
 }
