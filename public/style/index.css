@@ -99,6 +99,7 @@
     & .news {
         display: flex;
         flex-direction: column;
+        align-content: space-between;
         width: 410px;
         height: 450px;
         column-gap: 10px;
@@ -115,7 +116,20 @@
         }
 
         & h4 {
-            align-self: start;
+            padding: 0;
+            margin: 0;
+            font-family: 'Archivo', sans-serif;
+        }
+
+        & .datum {
+            font-style: italic;
+            color: #cce3ff;
+        }
+
+        & hr {
+            width: 100%;
+            border-width: 0.5px;
+            border-color: #cce3ff;
         }
     }
 }

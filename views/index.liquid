@@ -43,7 +43,8 @@
             {% endif %}
             <p class="datum">{{ article.date | date: '%d %B, %Y' }}</p>
             <h4>{{ article.title }}</h4>
-            <p>{{ article.description | truncate: 150}}<p>
+            <hr>
+            <p>{{ article.description | truncate: 200}}<p>
             </article>
         {% endfor %}
       </div>
